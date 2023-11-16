@@ -1,0 +1,17 @@
+---
+title: "Group Project"
+author: "Adam Parker"
+format: html
+editor: visual
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+fia <- read.csv("tree_raw_data_with_env_cleaned.csv") 
+ref_species <- read.csv("REF_SPECIES.csv") 
+fia <- merge(fia, ref_species, by.x = "spcd", by.y = "SPCD")
+
+fia <- fia %>% select(X, TREEcn, plt_cn, spcd, dia, ht, lat, long, SPECIES, COMMON_NAME) 
+```
